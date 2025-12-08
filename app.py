@@ -62,7 +62,7 @@ class Weather_App(QWidget):
                 font-weight: bold;
             }
             QLabel#temperature_label {
-                font-size: 75px;
+                font-size: 65px;
             }
             QLabel#emoji_label {
                 font-size: 100px;
@@ -122,7 +122,12 @@ class Weather_App(QWidget):
         self.temperature_label.setText(message)
 
     def display_weather(self, data):
-        print(data)
+        self.temperature_label.setStyleSheet('font-size: 65px')
+        temperature_k = data['main']['temp']
+        temperature_c = temperature_k - 273.15
+        temperature_f = (temperature_k * 9/5) - 459.67
+
+        self.temperature_label.setText(f'{temperature_c:.0f}°C')
 
 def main():
     #creating main application window
