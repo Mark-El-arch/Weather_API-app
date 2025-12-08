@@ -109,7 +109,7 @@ class Weather_App(QWidget):
                 case _:
                     self.display_error(f'HTTP error occurre:\n{http_error}')
         except requests.exceptions.ConnectionError:
-            self.display_error('Connection Error:\nPlease check your internet connection.')
+            self.display_error('Connection Error:\nPlease check your\n internet connection.')
         except requests.exceptions.Timeout:
             self.display_error('Timeout Error:\nThe request timed out.')
         except requests.exceptions.TooManyRedirects:
